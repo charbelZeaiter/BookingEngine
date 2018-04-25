@@ -1,4 +1,4 @@
-id, name, tour_id, param_1, param_2
-1, X for X-Y Deal, OH, 3, 2
-2, Free Tour, OH, SK, N/A,
-3, Bulk Discount, BC, 20.00, 4
+id,name,tour_id,param_1,param_2
+1,X for X-Y Deal,OH,3,2
+2,Free Tour,OH,SK,N/A,
+3,Bulk Discount,BC,20.00,4

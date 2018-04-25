@@ -1,4 +1,4 @@
-public class Rule2 {
+public class Rule2 implements Rule {
 
     private int id;
     private String name;
