@@ -1,41 +1,16 @@
-public class Rule1 implements Rule {
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-    private int id;
-    private String name;
-    private String tourId;
+public class Rule1 extends Rule {
+
     private int totalTicketsGiven;
     private int totalTicketsPurchased;
 
     public Rule1(int id, String name, String tourId, int totalTicketsGiven, int totalTicketsPurchased) {
-        this.id = id;
-        this.name = name;
-        this.tourId = tourId;
+        super(id, name, tourId);
         this.totalTicketsGiven = totalTicketsGiven;
         this.totalTicketsPurchased = totalTicketsPurchased;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTourId() {
-        return tourId;
-    }
-
-    public void setTourId(String tourId) {
-        this.tourId = tourId;
     }
 
     public int getTotalTicketsGiven() {
@@ -55,11 +30,29 @@ public class Rule1 implements Rule {
     }
 
     @Override
+    public double applyRule(HashMap<String, ArrayList<Tour>> toursDataSet) {
+
+        double amountToAdd = 0.0;
+
+        if(toursDataSet.containsKey(this.getTourId())) {
+            ArrayList<Tour> correspondingToursList = toursDataSet.get(this.getTourId());
+            int toursCount = correspondingToursList.size();
+
+            if (toursCount / totalTicketsGiven > 0) {
+                int multiplier = (totalTicketsGiven - totalTicketsPurchased);
+                amountToAdd -= multiplier * ((toursCount / totalTicketsGiven) * correspondingToursList.get(0).getPrice());
+            }
+        }
+
+        return amountToAdd;
+    }
+
+    @Override
     public String toString() {
         return "Rule1{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", tourId='" + tourId + '\'' +
+                "id=" + super.getId() +
+                ", name='" + super.getName() + '\'' +
+                ", tourId='" + super.getTourId() + '\'' +
                 ", totalTicketsGiven=" + totalTicketsGiven +
                 ", totalTicketsPurchased=" + totalTicketsPurchased +
                 '}';

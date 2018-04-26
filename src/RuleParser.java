@@ -35,6 +35,7 @@ public class RuleParser {
                 Rule newRule = mapToRule(columnsObj);
 
                 rules.add(newRule);
+
             }
             scanner.close();
         } catch (FileNotFoundException e) {

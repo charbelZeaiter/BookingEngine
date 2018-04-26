@@ -1,39 +1,13 @@
-public class Rule2 implements Rule {
+import java.util.ArrayList;
+import java.util.HashMap;
 
-    private int id;
-    private String name;
-    private String tourId;
+public class Rule2 extends Rule {
+
     private String freeTourId;
 
     public Rule2(int id, String name, String tourId, String freeTourId) {
-        this.id = id;
-        this.name = name;
-        this.tourId = tourId;
+        super(id, name, tourId);
         this.freeTourId = freeTourId;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTourId() {
-        return tourId;
-    }
-
-    public void setTourId(String tourId) {
-        this.tourId = tourId;
     }
 
     public String getFreeTourId() {
@@ -45,11 +19,29 @@ public class Rule2 implements Rule {
     }
 
     @Override
+    public double applyRule(HashMap<String, ArrayList<Tour>> toursDataSet) {
+
+        double amountToAdd = 0.0;
+
+        if(toursDataSet.containsKey(this.getTourId())) {
+            ArrayList<Tour> correspondingToursList = toursDataSet.get(this.getTourId());
+            int toursCount = correspondingToursList.size();
+
+            if (toursCount / totalTicketsGiven > 0) {
+                int multiplier = (totalTicketsGiven - totalTicketsPurchased);
+                amountToAdd -= multiplier * ((toursCount / totalTicketsGiven) * correspondingToursList.get(0).getPrice());
+            }
+        }
+
+        return amountToAdd;
+    }
+
+    @Override
     public String toString() {
         return "Rule2{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", tourId='" + tourId + '\'' +
+                "id=" + super.getId() +
+                ", name='" + super.getName() + '\'' +
+                ", tourId='" + super.getTourId() + '\'' +
                 ", freeTourId='" + freeTourId + '\'' +
                 '}';
     }

@@ -9,14 +9,14 @@ public class Main {
 
         try {
             HashMap<String, Tour> tourOffering = TourParser.parseToursCsv();
-            ArrayList<Rule> rulesStore = RuleParser.parseRulesCsv();
+            ArrayList<Rule> promotionalRules = RuleParser.parseRulesCsv();
 
-            System.out.println(tourOffering.toString());
-            System.out.println(rulesStore.toString());
-
-            ShoppingCart sp = new ShoppingCart(rulesStore);
+            ShoppingCart sp = new ShoppingCart(promotionalRules);
             sp.add(tourOffering.get("OH"));
             sp.add(tourOffering.get("OH"));
+            sp.add(tourOffering.get("OH"));
+            sp.add(tourOffering.get("BC"));
+
             sp.total();
 
         } catch (BookingEngineRunTimeException e) {

@@ -1,9 +1,41 @@
-public interface Rule {
+import java.util.ArrayList;
+import java.util.HashMap;
 
-    public int getId();
+public abstract class Rule {
 
-    public String getName();
+    private int id;
+    private String name;
+    private String tourId;
 
-    public String getTourId();
+    public Rule(int id, String name, String tourId) {
+        this.id = id;
+        this.name = name;
+        this.tourId = tourId;
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTourId() {
+        return tourId;
+    }
+
+    public void setTourId(String tourId) {
+        this.tourId = tourId;
+    }
+
+    public abstract double applyRule(HashMap<String, ArrayList<Tour>> toursDataSet);
 }
