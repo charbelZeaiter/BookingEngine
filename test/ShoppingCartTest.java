@@ -91,4 +91,32 @@ public class ShoppingCartTest {
         // Then
         assertThat(total, is(750.00));
     }
+
+    @Test
+    public void canCalculateComplexScenario() {
+        // Given
+        this.myShoppingCart.add(tourSet.get("BC"));
+        this.myShoppingCart.add(tourSet.get("BC"));
+        this.myShoppingCart.add(tourSet.get("BC"));
+        this.myShoppingCart.add(tourSet.get("BC"));
+        this.myShoppingCart.add(tourSet.get("BC"));
+        this.myShoppingCart.add(tourSet.get("BC"));
+        this.myShoppingCart.add(tourSet.get("BC"));
+        this.myShoppingCart.add(tourSet.get("BC"));
+        this.myShoppingCart.add(tourSet.get("OH"));
+        this.myShoppingCart.add(tourSet.get("OH"));
+        this.myShoppingCart.add(tourSet.get("OH"));
+        this.myShoppingCart.add(tourSet.get("OH"));
+        this.myShoppingCart.add(tourSet.get("OH"));
+        this.myShoppingCart.add(tourSet.get("OH"));
+        this.myShoppingCart.add(tourSet.get("OH"));
+        this.myShoppingCart.add(tourSet.get("SK"));
+        this.myShoppingCart.add(tourSet.get("SK"));
+
+        // When
+        double total = this.myShoppingCart.total();
+
+        // Then
+        assertThat(total, is(2220.00));
+    }
 }
