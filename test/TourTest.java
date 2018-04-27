@@ -1,6 +1,4 @@
-package test.java;
-
-import main.java.Tour;
+import main.Tour;
 import org.junit.Before;
 import org.junit.Test;
 

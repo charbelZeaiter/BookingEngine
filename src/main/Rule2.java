@@ -1,4 +1,4 @@
-package main.java;
+package main;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,7 +43,7 @@ public class Rule2 extends Rule {
 
     @Override
     public String toString() {
-        return "main.java.Rule2{" +
+        return "Rule2{" +
                 "id=" + super.getId() +
                 ", name='" + super.getName() + '\'' +
                 ", tourId='" + super.getTourId() + '\'' +

@@ -1,11 +1,7 @@
-package test.java;
-
-import main.java.Rule2;
-import main.java.Tour;
+import main.Rule2;
+import main.Tour;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
 
 import java.util.ArrayList;
 import java.util.HashMap;

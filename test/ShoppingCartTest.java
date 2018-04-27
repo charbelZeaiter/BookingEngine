@@ -1,6 +1,4 @@
-package test.java;
-
-import main.java.*;
+import main.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;

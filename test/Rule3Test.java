@@ -1,8 +1,5 @@
-package test.java;
-
-import main.java.Rule1;
-import main.java.Rule3;
-import main.java.Tour;
+import main.Rule3;
+import main.Tour;
 import org.junit.Before;
 import org.junit.Test;
 

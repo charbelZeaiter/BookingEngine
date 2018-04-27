@@ -1,4 +1,4 @@
-package main.java;
+package main;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,7 +47,7 @@ public class Rule3 extends Rule {
 
     @Override
     public String toString() {
-        return "main.java.Rule3{" +
+        return "Rule3{" +
                 "id=" + super.getId() +
                 ", name='" + super.getName() + '\'' +
                 ", tourId='" + super.getTourId() + '\'' +
