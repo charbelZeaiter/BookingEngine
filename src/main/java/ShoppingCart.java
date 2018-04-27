@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -23,28 +25,38 @@ public class ShoppingCart {
     }
 
     public double total() {
-        double currentTotal = 0.0;
+
         StringBuilder strBuilder = new StringBuilder();
 
-        Iterator it = this.toursDataSet.values().iterator();
-        while(it.hasNext()) {
-            ArrayList<Tour> toursTypeList = (ArrayList<Tour>) it.next();
+        double currentTotal = this.runEngine(strBuilder);
 
-            // Apply all prices
-            for(Tour entry : toursTypeList) {
-                strBuilder.append(entry.getId()+", ");
-                currentTotal += entry.getPrice();
+        System.out.println("Items added to the cart:");
+        System.out.println(strBuilder.toString() + " - Total expected: $" + currentTotal);
+
+        return currentTotal;
+    }
+
+    private double runEngine(StringBuilder strBuilder) {
+        double currentTotal = 0.0;
+
+        Iterator it = this.toursDataSet.values().iterator();
+        if(it.hasNext()) {
+            while (it.hasNext()) {
+                ArrayList<Tour> toursTypeList = (ArrayList<Tour>) it.next();
+
+                // Apply all prices
+                for (Tour entry : toursTypeList) {
+                    strBuilder.append(entry.getId() + ", ");
+                    currentTotal += entry.getPrice();
+                }
             }
+            strBuilder.delete(strBuilder.lastIndexOf(","), strBuilder.length());
         }
-        strBuilder.delete(strBuilder.lastIndexOf(","), strBuilder.length());
 
         // Apply discounts
         for(Rule entry : rules){
             currentTotal += entry.applyRule(toursDataSet);
         }
-
-        System.out.println("Items added to the cart:");
-        System.out.println(strBuilder.toString() + " - Total expected: $" + currentTotal);
 
         return currentTotal;
     }

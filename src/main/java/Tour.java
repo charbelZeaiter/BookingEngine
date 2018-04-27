@@ -1,3 +1,5 @@
+package main.java;
+
 public class Tour {
 
     private String id;
@@ -36,7 +38,7 @@ public class Tour {
 
     @Override
     public String toString() {
-        return "Tour{" +
+        return "main.java.TourTest{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", price=" + price +

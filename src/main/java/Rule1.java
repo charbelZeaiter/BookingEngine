@@ -1,4 +1,5 @@
-import java.lang.reflect.Array;
+package main.java;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -34,8 +35,8 @@ public class Rule1 extends Rule {
 
         double amountToAdd = 0.0;
 
-        if(toursDataSet.containsKey(this.getTourId())) {
-            ArrayList<Tour> correspondingToursList = toursDataSet.get(this.getTourId());
+        if(toursDataSet.containsKey(getTourId())) {
+            ArrayList<Tour> correspondingToursList = toursDataSet.get(getTourId());
             int toursCount = correspondingToursList.size();
 
             if (toursCount / totalTicketsGiven > 0) {
@@ -49,7 +50,7 @@ public class Rule1 extends Rule {
 
     @Override
     public String toString() {
-        return "Rule1{" +
+        return "main.java.Rule1{" +
                 "id=" + super.getId() +
                 ", name='" + super.getName() + '\'' +
                 ", tourId='" + super.getTourId() + '\'' +

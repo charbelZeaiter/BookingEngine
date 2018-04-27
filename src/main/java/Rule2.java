@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -23,13 +25,16 @@ public class Rule2 extends Rule {
 
         double amountToAdd = 0.0;
 
-        if(toursDataSet.containsKey(this.getTourId())) {
-            ArrayList<Tour> correspondingToursList = toursDataSet.get(this.getTourId());
-            int toursCount = correspondingToursList.size();
+        if(toursDataSet.containsKey(getTourId())) {
+            if(toursDataSet.containsKey(freeTourId)) {
+                int tour1Count = toursDataSet.get(getTourId()).size();
+                int tour2Count = toursDataSet.get(freeTourId).size();
 
-            if (toursCount / totalTicketsGiven > 0) {
-                int multiplier = (totalTicketsGiven - totalTicketsPurchased);
-                amountToAdd -= multiplier * ((toursCount / totalTicketsGiven) * correspondingToursList.get(0).getPrice());
+                while(tour1Count > 0 && tour2Count > 0) {
+                    amountToAdd -= toursDataSet.get(freeTourId).get(0).getPrice();
+                    tour1Count--;
+                    tour2Count--;
+                }
             }
         }
 
@@ -38,7 +43,7 @@ public class Rule2 extends Rule {
 
     @Override
     public String toString() {
-        return "Rule2{" +
+        return "main.java.Rule2{" +
                 "id=" + super.getId() +
                 ", name='" + super.getName() + '\'' +
                 ", tourId='" + super.getTourId() + '\'' +

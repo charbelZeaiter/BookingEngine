@@ -1,3 +1,5 @@
+package main.java;
+
 public class BookingEngineRunTimeException extends RuntimeException {
 
     public BookingEngineRunTimeException(String message) {

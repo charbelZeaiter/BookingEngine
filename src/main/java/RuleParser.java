@@ -1,3 +1,5 @@
+package main.java;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -65,9 +67,9 @@ public class RuleParser {
                 rule = new Rule2(id, name, tourId, freeTourId);
                 break;
             case 3:
-                double newTicketPrice = Double.parseDouble(columnsObj.get("param1"));
-                int greaterThanThreshold = Integer.parseInt(columnsObj.get("param2"));
-                rule = new Rule3(id, name, tourId, newTicketPrice, greaterThanThreshold);
+                double discount = Double.parseDouble(columnsObj.get("param1"));
+                int threshold = Integer.parseInt(columnsObj.get("param2"));
+                rule = new Rule3(id, name, tourId, discount, threshold);
                 break;
         }
 
