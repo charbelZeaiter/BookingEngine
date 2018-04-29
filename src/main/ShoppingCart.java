@@ -1,15 +1,13 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
 
 public class ShoppingCart {
 
-    private ArrayList<Rule> rules;
-    private HashMap<String, ArrayList<Tour>> toursDataSet;
+    private List<Rule> rules;
+    private Map<String, List<Tour>> toursDataSet;
 
-    public ShoppingCart(ArrayList<Rule> rules) {
+    public ShoppingCart(List<Rule> rules) {
         this.rules = rules;
         this.toursDataSet = new HashMap<>();
     }
@@ -18,7 +16,7 @@ public class ShoppingCart {
         if (this.toursDataSet.containsKey(tour.getId())) {
             this.toursDataSet.get(tour.getId()).add(tour);
         } else {
-            ArrayList<Tour> newList = new ArrayList<>();
+            List<Tour> newList = new ArrayList<>();
             newList.add(tour);
             this.toursDataSet.put(tour.getId(), newList);
         }
@@ -40,9 +38,9 @@ public class ShoppingCart {
         double currentTotal = 0.0;
 
         Iterator it = this.toursDataSet.values().iterator();
-        if(it.hasNext()) {
+        if (it.hasNext()) {
             while (it.hasNext()) {
-                ArrayList<Tour> toursTypeList = (ArrayList<Tour>) it.next();
+                List<Tour> toursTypeList = (List<Tour>) it.next();
 
                 // Apply all prices
                 for (Tour entry : toursTypeList) {
@@ -54,7 +52,7 @@ public class ShoppingCart {
         }
 
         // Apply discounts
-        for(Rule entry : rules){
+        for (Rule entry : rules) {
             currentTotal += entry.applyRule(toursDataSet);
         }
 

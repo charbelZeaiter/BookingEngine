@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -37,7 +39,7 @@ public class Rule2Test {
     @Test
     public void canApplyRuleWhenDoesNotApply() {
         // Given
-        HashMap<String, ArrayList<Tour>> toursDataSet = new HashMap<>();
+        Map<String, List<Tour>> toursDataSet = new HashMap<>();
 
         // When
         double discount = rule.applyRule(toursDataSet);
@@ -49,7 +51,7 @@ public class Rule2Test {
     @Test
     public void canApplyRuleScenario1() {
         // Given
-        HashMap<String, ArrayList<Tour>> toursDataSet = generateToursDataSet(1, 0);
+        Map<String, List<Tour>> toursDataSet = generateToursDataSet(1, 0);
 
         // When
         double discount = rule.applyRule(toursDataSet);
@@ -61,7 +63,7 @@ public class Rule2Test {
     @Test
     public void canApplyRuleScenario2() {
         // Given
-        HashMap<String, ArrayList<Tour>> toursDataSet = generateToursDataSet(1, 1);
+        Map<String, List<Tour>> toursDataSet = generateToursDataSet(1, 1);
 
         // When
         double discount = rule.applyRule(toursDataSet);
@@ -74,7 +76,7 @@ public class Rule2Test {
     @Test
     public void canApplyRuleScenario3() {
         // Given
-        HashMap<String, ArrayList<Tour>> toursDataSet = generateToursDataSet(0, 1);
+        Map<String, List<Tour>> toursDataSet = generateToursDataSet(0, 1);
 
         // When
         double discount = rule.applyRule(toursDataSet);
@@ -86,7 +88,7 @@ public class Rule2Test {
     @Test
     public void canApplyRuleScenario4() {
         // Given
-        HashMap<String, ArrayList<Tour>> toursDataSet = generateToursDataSet(5, 5);
+        Map<String, List<Tour>> toursDataSet = generateToursDataSet(5, 5);
 
         // When
         double discount = rule.applyRule(toursDataSet);
@@ -98,7 +100,7 @@ public class Rule2Test {
     @Test
     public void canApplyRuleScenario5() {
         // Given
-        HashMap<String, ArrayList<Tour>> toursDataSet = generateToursDataSet(1, 10);
+        Map<String, List<Tour>> toursDataSet = generateToursDataSet(1, 10);
 
         // When
         double discount = rule.applyRule(toursDataSet);
@@ -110,7 +112,7 @@ public class Rule2Test {
     @Test
     public void canApplyRuleScenario6() {
         // Given
-        HashMap<String, ArrayList<Tour>> toursDataSet = generateToursDataSet(0, 0);
+        Map<String, List<Tour>> toursDataSet = generateToursDataSet(0, 0);
 
         // When
         double discount = rule.applyRule(toursDataSet);
@@ -119,10 +121,10 @@ public class Rule2Test {
         assertThat(discount, is(0.0));
     }
 
-    private HashMap<String, ArrayList<Tour>> generateToursDataSet(int numOfXTours, int numOfYTours) {
-        HashMap<String, ArrayList<Tour>> toursDataSet = new HashMap<>();
-        ArrayList<Tour> listX = new ArrayList<>();
-        ArrayList<Tour> listY = new ArrayList<>();
+    private Map<String, List<Tour>> generateToursDataSet(int numOfXTours, int numOfYTours) {
+        Map<String, List<Tour>> toursDataSet = new HashMap<>();
+        List<Tour> listX = new ArrayList<>();
+        List<Tour> listY = new ArrayList<>();
 
         for (int i = 0; i < numOfXTours; i++) {
             listX.add(new Tour(rule.getTourId(), "A Tour", 100.00));

@@ -1,7 +1,7 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Rule1 extends Rule {
 
@@ -31,12 +31,12 @@ public class Rule1 extends Rule {
     }
 
     @Override
-    public double applyRule(HashMap<String, ArrayList<Tour>> toursDataSet) {
+    public double applyRule(Map<String, List<Tour>> toursDataSet) {
 
         double amountToAdd = 0.0;
 
-        if(toursDataSet.containsKey(getTourId())) {
-            ArrayList<Tour> correspondingToursList = toursDataSet.get(getTourId());
+        if (toursDataSet.containsKey(getTourId())) {
+            List<Tour> correspondingToursList = toursDataSet.get(getTourId());
             int toursCount = correspondingToursList.size();
 
             if (toursCount / totalTicketsGiven > 0) {

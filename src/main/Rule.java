@@ -1,7 +1,7 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public abstract class Rule {
 
@@ -39,5 +39,5 @@ public abstract class Rule {
         this.tourId = tourId;
     }
 
-    public abstract double applyRule(HashMap<String, ArrayList<Tour>> toursDataSet);
+    public abstract double applyRule(Map<String, List<Tour>> toursDataSet);
 }

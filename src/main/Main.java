@@ -1,15 +1,15 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Main {
 
     public static void main(String[] args) {
 
         try {
-            HashMap<String, Tour> tourOffering = TourParser.parseToursCsv();
-            ArrayList<Rule> promotionalRules = RuleParser.parseRulesCsv();
+            Map<String, Tour> tourOffering = TourParser.parseToursCsv();
+            List<Rule> promotionalRules = RuleParser.parseRulesCsv();
 
             ShoppingCart sp = new ShoppingCart(promotionalRules);
             sp.add(tourOffering.get("BC"));

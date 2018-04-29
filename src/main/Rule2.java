@@ -2,6 +2,8 @@ package main;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Rule2 extends Rule {
 
@@ -21,7 +23,7 @@ public class Rule2 extends Rule {
     }
 
     @Override
-    public double applyRule(HashMap<String, ArrayList<Tour>> toursDataSet) {
+    public double applyRule(Map<String, List<Tour>> toursDataSet) {
 
         double amountToAdd = 0.0;
 
