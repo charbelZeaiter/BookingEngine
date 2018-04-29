@@ -33,7 +33,7 @@ public class Rule1 extends Rule {
     @Override
     public double applyRule(Map<String, List<Tour>> toursDataSet) {
 
-        double amountToAdd = 0.0;
+        double discount = 0.0;
 
         if (toursDataSet.containsKey(getTourId())) {
             List<Tour> correspondingToursList = toursDataSet.get(getTourId());
@@ -41,11 +41,11 @@ public class Rule1 extends Rule {
 
             if (toursCount / totalTicketsGiven > 0) {
                 int multiplier = (totalTicketsGiven - totalTicketsPurchased);
-                amountToAdd -= multiplier * ((toursCount / totalTicketsGiven) * correspondingToursList.get(0).getPrice());
+                discount += multiplier * ((toursCount / totalTicketsGiven) * correspondingToursList.get(0).getPrice());
             }
         }
 
-        return amountToAdd;
+        return discount;
     }
 
     @Override

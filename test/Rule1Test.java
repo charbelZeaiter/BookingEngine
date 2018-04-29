@@ -97,7 +97,7 @@ public class Rule1Test {
         double discount = rule.applyRule(toursDataSet);
 
         // Then
-        assertThat(discount, is(-100.0));
+        assertThat(discount, is(100.0));
     }
 
     @Test
@@ -109,7 +109,7 @@ public class Rule1Test {
         double discount = rule.applyRule(toursDataSet);
 
         // Then
-        assertThat(discount, is(-100.0));
+        assertThat(discount, is(100.0));
     }
 
     @Test
@@ -121,7 +121,7 @@ public class Rule1Test {
         double discount = rule.applyRule(toursDataSet);
 
         // Then
-        assertThat(discount, is(-200.0));
+        assertThat(discount, is(200.0));
     }
 
     @Test
@@ -135,7 +135,7 @@ public class Rule1Test {
         double discount = rule.applyRule(toursDataSet);
 
         // Then
-        assertThat(discount, is(-2000.0));
+        assertThat(discount, is(2000.0));
     }
 
     @Test

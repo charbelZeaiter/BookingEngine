@@ -109,7 +109,7 @@ public class Rule3Test {
         double discount = rule.applyRule(toursDataSet);
 
         // Then
-        assertThat(discount, is(-100.0));
+        assertThat(discount, is(100.0));
     }
 
     @Test
@@ -121,7 +121,7 @@ public class Rule3Test {
         double discount = rule.applyRule(toursDataSet);
 
         // Then
-        assertThat(discount, is(-120.0));
+        assertThat(discount, is(120.0));
     }
 
     @Test
@@ -134,7 +134,7 @@ public class Rule3Test {
         double discount = rule.applyRule(toursDataSet);
 
         // Then
-        assertThat(discount, is(-40.0));
+        assertThat(discount, is(40.0));
     }
 
     @Test
@@ -148,7 +148,7 @@ public class Rule3Test {
         double discount = rule.applyRule(toursDataSet);
 
         // Then
-        assertThat(discount, is(-2500.0));
+        assertThat(discount, is(2500.0));
     }
 
     private Map<String, List<Tour>> generateToursDataSet(int numberOfTours) {

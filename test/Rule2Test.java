@@ -69,7 +69,7 @@ public class Rule2Test {
         double discount = rule.applyRule(toursDataSet);
 
         // Then
-        assertThat(discount, is(-50.0));
+        assertThat(discount, is(50.0));
     }
 
 
@@ -94,7 +94,7 @@ public class Rule2Test {
         double discount = rule.applyRule(toursDataSet);
 
         // Then
-        assertThat(discount, is(-250.00));
+        assertThat(discount, is(250.00));
     }
 
     @Test
@@ -106,7 +106,7 @@ public class Rule2Test {
         double discount = rule.applyRule(toursDataSet);
 
         // Then
-        assertThat(discount, is(-50.0));
+        assertThat(discount, is(50.0));
     }
 
     @Test

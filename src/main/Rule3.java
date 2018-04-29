@@ -33,16 +33,16 @@ public class Rule3 extends Rule {
     @Override
     public double applyRule(Map<String, List<Tour>> toursDataSet) {
 
-        double amountToAdd = 0.0;
+        double discount = 0.0;
 
         if (toursDataSet.containsKey(this.getTourId())) {
             List<Tour> tourList = toursDataSet.get(this.getTourId());
             if (tourList.size() > threshold) {
-                amountToAdd -= discount * tourList.size();
+                discount += this.discount * tourList.size();
             }
         }
 
-        return amountToAdd;
+        return discount;
     }
 
     @Override

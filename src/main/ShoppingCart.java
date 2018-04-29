@@ -1,6 +1,9 @@
 package main;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ShoppingCart {
 
@@ -24,37 +27,31 @@ public class ShoppingCart {
 
     public double total() {
 
-        StringBuilder strBuilder = new StringBuilder();
-
-        double currentTotal = this.runEngine(strBuilder);
+        double total = this.runEngine();
 
         System.out.println("Items added to the cart:");
-        System.out.println(strBuilder.toString() + " - Total expected: $" + currentTotal);
+        toursDataSet.values().stream()
+                .forEach(x -> {
+                    x.stream()
+                        .forEach(y -> System.out.print(y.getId()+", "));
+                });
+        System.out.println(" - Total expected: $" + total);
 
-        return currentTotal;
+        return total;
     }
 
-    private double runEngine(StringBuilder strBuilder) {
-        double currentTotal = 0.0;
+    private double runEngine() {
+        double currentTotal = toursDataSet.values().stream()
+                .map(x -> x.stream()
+                        .map(y -> y.getPrice())
+                        .mapToDouble(Double::doubleValue).sum())
+                .mapToDouble(Double::doubleValue).sum();
 
-        Iterator it = this.toursDataSet.values().iterator();
-        if (it.hasNext()) {
-            while (it.hasNext()) {
-                List<Tour> toursTypeList = (List<Tour>) it.next();
+        double discount = rules.stream()
+                .map(x -> x.applyRule(toursDataSet))
+                .mapToDouble(Double::doubleValue).sum();
 
-                // Apply all prices
-                for (Tour entry : toursTypeList) {
-                    strBuilder.append(entry.getId() + ", ");
-                    currentTotal += entry.getPrice();
-                }
-            }
-            strBuilder.delete(strBuilder.lastIndexOf(","), strBuilder.length());
-        }
-
-        // Apply discounts
-        for (Rule entry : rules) {
-            currentTotal += entry.applyRule(toursDataSet);
-        }
+        currentTotal -= discount;
 
         return currentTotal;
     }
